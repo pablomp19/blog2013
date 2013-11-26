@@ -10,7 +10,16 @@ define('RUTA_FOTOS', RAIZ . 'fotos/');
 
 // Bases de datos.
 define('BD_SERVIDOR', $_SERVER['HTTP_HOST']);
-define('BD_NOMBRE', 'XXXX');
-define('BD_USUARIO', 'XXXX');
-define('BD_PASSWORD', 'XXXXX');
+define('BD_NOMBRE', 'c99base1');
+define('BD_USUARIO', 'c99mysql');
+define('BD_PASSWORD', 'cures131991');
+
+//Creamos la conexion de la base de datos
+$conexion=mysql_connect(BD_SERVIDOR, BD_USUARIO, BD_PASSWORD) or die(mysql_error());
+
+//Seleccionamos la base de datos en la conexión anterior
+mysql_select_db(BD_NOMBRE,$conexion) or die(mysql_error());
+
+//Para recibir correctamente los datos en UTF-8 en la conexión
+mysql_query("SET NAMES 'UTF8'", $conexion) or die(mysql_error());
 ?>
